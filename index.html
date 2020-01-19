@@ -6,11 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <link rel="stylesheet" href="./reset.css" >
+    <link rel="stylesheet" href="./index.css" >
 </head>
 
 <body>
     <div id="app">
         {{ message }}
+        <div id="container">
+            <div class="title">
+                <!-- &nbsp; -->
+                <h2>定制工作计划</h2>
+            </div>
+        </div>
     </div>
 
 
@@ -21,7 +29,7 @@
         var app = new Vue({
             el: '#app',
             data: {
-                message: 'Hello Vue!'
+                message: 'test'
             }
         })
     </script>
