@@ -13,7 +13,7 @@ window.onload = function () {
                 test1: true,
                 abc:[1,2],
                 newItems:[],
-                cur:3,
+                cur:1,
                 arrId:[]
             }  
         },
@@ -39,12 +39,13 @@ window.onload = function () {
                 this.filterItem(this.cur);
             },
             del (aaa) {
-                // console.log(aaa.id)
-                for(var i=0;i<this.items.length;i++){
-                    if(this.items[i].id == aaa.id){
-                        var index = i;
-                    }
-                }
+                // 和下面 获取index 效果一样
+                // for(var i=0;i<this.items.length;i++){
+                //     if(this.items[i].id == aaa.id){
+                //         var index = i;
+                //     }
+                // }
+                var index = this.items.findIndex(v => v.id == aaa.id)
                 console.log(index)
                 this.items.splice(index,1)
                 this.filterItem(this.cur);
@@ -67,27 +68,24 @@ window.onload = function () {
                 }
             },
             maxId () {
-               return Math.max(...this.arrId)+1
+               return Math.max(...this.arrId)+1;
             }
         },
         computed: {
             completed () {
-                // return this.items.filter(function(v){ return v.check == true}).length 
-                return this.items.filter(v => v.check ).length
+                // return this.items.filter(function(v){ return v.check == true}).length  和下面一样
+                return this.items.filter(v => v.check ).length;
             },
             reItems () {
                 var items = [];
-                items = this.getMsg
+                items = this.getMsg;
             }
-
         },
         mounted () {
            this.filterItem(this.cur);
-           this.addId()
+           this.addId();
            //倒序数组
-           this.items.reverse()
-           
-
+           this.items.reverse();
         }
     })
 }

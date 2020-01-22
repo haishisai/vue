@@ -25,13 +25,11 @@
             <div class="input-box">
                 <div class="input-box-left">
                     <input type="text" v-model="input" >
-
                 </div>
                 <button class="input-box-rihgt" @click="add()" :disabled="!input" >
                     添加计划
                 </button>
-            </div>
-            
+            </div>           
             <ul class="tabs">
                 <li :class="cur==1 ? 'tabs-active' : '' " @click="filterItem(1)" >所有计划</li>
                 <!-- <li :class="{'tabs-active':cur == 1}" @click="filterItem(1)" >所有计划</li> -->
@@ -40,12 +38,11 @@
             </ul>
             <ul class="show-box">
                 <!-- <li v-for="(item,i) in items" :key="i" :class=" item.check ? 'check-li' : '' " > -->
-                <li v-for="(item,i) in newItems" :key="i" :class="{ 'check-li' : item.check }">
+                <li v-for="(item,i) in newItems" :key="item.id" :class="{ 'check-li' : item.check }">
                     <input class="checkbox" type="checkbox" v-model="item.check" >
                     <span class="show-txt">{{item.msg}}</span>
                     <span class="show-del" @click="del(item)" >删除</span>
                 </li>
-               
             </ul>
         </div>
     </div>
