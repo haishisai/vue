@@ -12,12 +12,41 @@
 
 <body>
     <div id="app">
-        {{ message }}
         <div id="container">
             <div class="title">
                 <!-- &nbsp; -->
                 <h2>定制工作计划</h2>
+                <div class="title-txt">
+                   共有<span class="title-txt-number">{{items.length}}</span>个计划。
+                   已完成:<span class="title-txt-number">{{completed}}</span>&nbsp;
+                   未完成:<span class="title-txt-number">{{items.length-completed}}</span>
+                </div>
             </div>
+            <div class="input-box">
+                <div class="input-box-left">
+                    <input type="text" v-model="input" >
+
+                </div>
+                <button class="input-box-rihgt" @click="add()" :disabled="!input" >
+                    添加计划
+                </button>
+            </div>
+            
+            <ul class="tabs">
+                <li :class="cur==1 ? 'tabs-active' : '' " @click="filterItem(1)" >所有计划</li>
+                <!-- <li :class="{'tabs-active':cur == 1}" @click="filterItem(1)" >所有计划</li> -->
+                <li :class="{'tabs-active':cur == 2}" @click="filterItem(2)">已完成</li>
+                <li :class="{'tabs-active':cur == 3}" @click="filterItem(3)">未完成</li>
+            </ul>
+            <ul class="show-box">
+                <!-- <li v-for="(item,i) in items" :key="i" :class=" item.check ? 'check-li' : '' " > -->
+                <li v-for="(item,i) in newItems" :key="i" :class="{ 'check-li' : item.check }">
+                    <input class="checkbox" type="checkbox" v-model="item.check" >
+                    <span class="show-txt">{{item.msg}}</span>
+                    <span class="show-del" @click="del(item)" >删除</span>
+                </li>
+               
+            </ul>
         </div>
     </div>
 
@@ -25,14 +54,7 @@
 
 
     <script src="./public/vue.js"></script>
-    <script>
-        var app = new Vue({
-            el: '#app',
-            data: {
-                message: 'test'
-            }
-        })
-    </script>
+    <script src="./index.js" ></script>
 </body>
 
 </html>
