@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    *{
+        list-style: none;
+    }
+    ul{
+      display: flex;  
+    }
+    </style>
+</head>
+
+<body>
+
+    <div id="app">
+        {{msg}}
+        <ul>
+            <li v-for="(item,index) of items" :key="index" >{{item}},</li>
+        </ul>
+        <ul>
+            <li v-for="(item,index) of reverseItems" :key="index" >{{item}},</li>
+        </ul>
+
+        <hr>
+        <!-- <div v-bind="aaa" ></div> -->
+        <input type="text" v-model="message" @keyup="arrFilter()" >
+        {{message}}
+        <div @click="arrFilter()" >按钮</div>
+        <ul>
+            <li v-for="(item,index) of items2" :key="index" >{{item}},</li>
+        </ul>
+    </div>
+
+
+    <script src="./public/vue.js"></script>
+    <script>
+        var arr = [1, 2, 3, 4, 5]
+        new Vue({
+            el: '#app',
+            data() {
+                return {
+                    msg: 'test',
+                    items: [1, {num:2} , 3, 4, 5,7,10,12,11,345,12,11,'abc','cake','filter','component'],
+                    message: '2233',
+                    items2:[]
+                }
+            },
+            computed:{
+                // 这里的方法直接启动  return一个值  函数名可以直接当做返回的变量用
+                reverseItems: function () {
+                    var newArr = []
+                    for (var i=0;i<this.items.length;i++) {
+                        newArr.unshift(this.items[i])
+                    }
+                    return newArr
+                },
+                
+            },
+            methods:{
+                // 这里的方法等待启动  return不好用  需要赋值
+                arrFilter () {
+                // this.items2 = this.items.filter(v => v > this.message)
+                    this.items2 = this.items.filter(v => {
+                        vv = String(v)
+                        console.log(vv)
+                        return vv.indexOf(this.message) >= 0
+                    })
+                }
+            },
+            mounted () {
+                console.log(this.arrFilter)
+            }
+
+        })
+    </script>
+</body>
+
+</html>

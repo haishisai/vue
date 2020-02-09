@@ -35,7 +35,7 @@
                 <!-- <li :class="{'tabs-active':cur == 1}" @click="filterItem(1)" >所有计划</li> -->
                 <li :class="{'tabs-active':cur == 2}" @click="filterItem(2)">已完成</li>
                 <li :class="{'tabs-active':cur == 3}" @click="filterItem(3)">未完成</li>
-            </ul>
+            </ul> 
             <ul class="show-box">
                 <!-- <li v-for="(item,i) in items" :key="i" :class=" item.check ? 'check-li' : '' " > -->
                 <li v-for="(item,i) in newItems" :key="item.id" :class="{ 'check-li' : item.check }">
