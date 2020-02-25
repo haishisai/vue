@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./assets/reset.css">
+    <link rel="stylesheet" href="./assets/tools.css">
+    <link rel="stylesheet" href="./items.css">
+
+</head>
+
+<body>
+    <div id="app">
+        <h2>商品和库存管理</h2>
+        <div class="desc1">共3类商品</div>
+        <div class="desc2">切换表格样式</div>
+        <table class="item-box">
+            <thead>
+                <tr>
+                    <td class="goods-name text-center">商品名称</td>
+                    <td class="goods-number text-center">商品库存</td>
+                    <td class="goods-handle text-center">操作</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="(item , index) of items" :key="index">
+                    <td class="goods-name text-center">{{'ID'+item.id + ' ' + item.name}}</td>
+                    <td class="goods-number text-center">
+                        <span class="goods-number-plus" @click="numAdd(index)" >+</span>
+                        <span>{{item.num}}</span>
+                        <span class="goods-number-minus" @click="numReduce(index)" >-</span>
+                    </td>
+                    <td class="goods-handle text-center">
+                        <span class="goods-handle-del-btn" @click="delGoods(index)">删除</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="goods-name text-center ">
+                        <input 
+                        class="add-input" 
+                        type="text" 
+                        v-model="addGoodsName" 
+                        @focus="addFocus()"
+                        @blur="addBlur()" 
+                        >
+                    </td>
+                    <td class="goods-number text-center add-input">
+                        <input class="add-input" type="text" v-model="addGoodsNumber">
+                    </td>
+                    <td class="goods-handle text-center">
+                        <span class="goods-handle-add-btn" @click="addGoods" >添加</span>
+                    </td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td class="goods-name text-center">总计</td>
+                    <td class="goods-number text-center"></td>
+                    <td class="goods-handle text-center"></td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+    <script src="./assets/vue.js"></script>
+    <script>
+        let app = new Vue({
+            el: '#app',
+            data: {
+                items: [
+                    { name: '华为', num: 3 },
+                    { name: '小米', num: 31 },
+                    { name: 'vivo', num: 3 },
+                    { name: '魅族', num: 8 }
+                ],
+                addGoodsName: '请输入商品名',
+                addGoodsNumber: '请输入商品数量'
+            },
+            methods: {
+                delGoods(i) {
+                    this.items.splice(i, 1)
+                },
+                addId() {
+                    this.items.forEach((e, i) => {
+                        e.id = i
+                    });
+                },
+                numAdd (i) {
+                    this.items[i].num ++
+                },
+                numReduce (i) {
+                    if(this.items[i].num <= 0){
+                        return
+                    }
+                    this.items[i].num --
+                },
+                addGoods () {
+                    
+                },
+                addFocus() {
+                    this.addGoodsName = ''
+                },
+                addBlur() {
+                    if(!this.addGoodsName) {
+                        this.addGoodsName = '请输入商品名'
+                    }
+                }
+
+            },
+            beforeMount() {
+                this.addId()
+            },
+            mounted() {
+                
+            }
+        })
+    </script>
+</body>
+
+</html>

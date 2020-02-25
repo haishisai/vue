@@ -1,0 +1,80 @@
+#app{
+    width: 12rem;
+    margin: 0.5rem auto 0;
+    /* border: 1px solid #dede23; */
+}
+#app h2 {
+    font-size: .40rem;
+    text-align: center;
+    font-weight: bold;
+}
+.desc1 {
+    font-size: .24rem;
+    text-align: center;
+    margin: .1rem;
+}
+.desc2 {
+    font-size: .16rem;
+    text-align: center;
+    margin: .1rem;
+}
+
+/* table start */
+.item-box{
+    width: 100%;
+    
+}
+.item-box td {
+    border: 1px solid #232323;
+    padding: .2rem 0;
+}
+.item-box thead{
+    font-size: .26rem;
+    font-weight: bold;
+}
+.goods-name,.goods-number,.goods-handle{
+    font-size: .24rem;
+}
+.goods-name,.goods-number {
+    width: 5rem;
+}
+.goods-handle {
+    width: 2rem;
+}
+
+
+/* table body */
+
+.goods-number-plus, .goods-number-minus{
+    display: inline-block;
+    height: .3rem;
+    line-height: .3rem;
+    width: .3rem;
+    border:1px solid #232323;
+    margin:.1rem;
+}
+.goods-handle-del-btn{
+    display: inline-block;
+    height: .4rem;
+    line-height: .4rem;
+    width: 1.1rem;
+    border:1px solid #232323;
+    margin:.1rem;
+}
+.goods-handle-add-btn{
+    display: inline-block;
+    height: .4rem;
+    line-height: .4rem;
+    width: 1.1rem;
+    border:1px solid #232323;
+    margin:.1rem;
+}
+
+.add-input{
+    border:1px solid #232323;
+    opacity: 0.7;
+    padding-left: .1rem;
+}
+
+
+/* table end */
