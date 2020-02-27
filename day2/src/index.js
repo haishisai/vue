@@ -1,15 +1,10 @@
-
+// 总入口文件
 import App from './app.js';
 
 
-let template = `
-    <div>
-        hello
-        <App></App>
-    </div>
+let template = `    
+        <App></App>    
 `
-
-
 
 new Vue({
     el:'#app',

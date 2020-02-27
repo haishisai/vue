@@ -1,10 +1,12 @@
 import MovieList from "./MovieList.js";
+import movieService from './movieService.js';
+
 
 export default {
     name: 'MovieContainer',
     template: `
     <div>
-        <MovieList :moviesData="moviesData" ></MovieList>
+        <MovieList :moviesData="movies" ></MovieList>
     </div>
     `,
     components:{
@@ -32,7 +34,7 @@ export default {
                     "isClassic": true
                 },
                 {
-                    "_id": "5c25ddba5a1651132655113e", 
+                    "_id": "5c25ddba5a165111132655113e", 
                     "name": "来电狂响", 
                     "ename": "Kill Mobile", 
                     "type": "恐怖,惊悚,战争", 
@@ -49,7 +51,12 @@ export default {
                     "isComing": false, 
                     "isClassic": true
                 }
-            ]
+            ],
+            movies:[]
         }
+    },
+    async created(){
+        let resp = await movieService.getMovies(1,10);
+        this.movies = resp.data        
     }
 }
