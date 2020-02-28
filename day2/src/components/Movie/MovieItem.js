@@ -5,7 +5,8 @@ export default {
     <img :src="moviesData.poster" alt="">
   </div> 
   <div class="words">
-    <h2 class="title">{{moviesData.name}}</h2> 
+    <router-link :to="{name:'movie-detail',params:{id:moviesData._id}}" ><h2 class="title">{{moviesData.name}}</h2> </router-link>
+    
     <div class="attach">
       <span>英文名：{{moviesData.ename}}</span> 
       <span>类型：{{moviesData.type}}</span> 

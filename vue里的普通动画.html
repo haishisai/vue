@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    .c1{
+        background-color: aqua;
+        height: 100px;
+        width: 100px;
+        transition:left 1s linear; 
+        position: absolute;
+        left:0;
+    }
+    .c2{
+        background-color: goldenrod;
+        height: 100px;
+        width: 100px;
+        transition:all 1s linear; 
+        position: absolute;
+        left:0;
+        top:300px;
+    }
+    .c3{
+        background-color:plum;
+        height: 100px;
+        width: 100px;
+        position: absolute;
+        top:500px;
+        left: 0;
+    }
+    .cc{
+        left: 500px;
+    }
+    .abc{
+        border:3px solid darkgoldenrod
+    }
+
+    </style>
+</head>
+<body>
+    <div id="app">
+
+        <div class="c1" @click="ani()" :class="{ cc : msg2 , abc : true }" ></div>
+        <div class="c2" @click="ani2()" :style="setStyle"  ></div>
+        <div class="c3" @click="ani3()" :style="{width:'120px',backgroundColor:'#343434',left:c3Left+'px'}" ></div>
+    </div>
+    <script src="./public/vue.js" ></script>
+    <script>
+    window.onload = function () {
+        new Vue({
+            el:"#app",
+            data () {
+                return {
+                    msg:"aaa",
+                    msg2: false,
+                    c2w: 200,
+                    c3Left: 100
+                }
+            },
+            methods:{
+                ani(){
+                    this.msg2 = !this.msg2
+                },
+                ani2(){
+                    this.c2w += 100
+                },
+                ani3(){
+                    this.c3Left += 100
+                }
+            },
+            computed:{
+                setStyle(){
+                    return {
+                        width: this.c2w+'px',
+                        height: '100px'
+                    }
+                }
+            }
+        })
+    }
+
+    // let c1 = document.getElementsByClassName('c1')[0];
+    // c1.onclick = function(){
+    //     this.classList.add('cc')
+    //     // this.style.left = '200px'
+    // }
+    </script>
+</body>
+</html>
