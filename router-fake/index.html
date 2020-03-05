@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    *{
+      padding:0;
+      margin: 0;
+    }
+    .bar{
+      display: flex;
+      position: fixed;
+      width: 100%;
+      /* fixed 后  需要给宽度  */
+      bottom:0;
+    }
+    .bar span{
+      flex: 1;
+      text-align: center;
+      
+    }
+  </style>
+</head>
+<body>
+  <div id="app" ></div>
+  <script src="./src/assets/vue.js" ></script>
+  <script src="./src/main.js" type="module" ></script>
+</body>
+</html>

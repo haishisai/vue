@@ -115,7 +115,7 @@
         transform: rotate(360deg);
     }
 }
-
+/* vue过渡动画 */
 .fade-enter{
     opacity: 0;
 }
