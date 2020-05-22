@@ -2,14 +2,9 @@
 import App from './app.js';
 import router from './router.js';
 
-
-
-
 let template = `    
         <App></App>
 `
-
-
 new Vue({
     el:'#app',
     template,

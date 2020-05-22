@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    * {
+      list-style: none;
+    }
+    ul {
+      display: flex;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <div v-for="(item, key, index) of items" :key="index"  >
+      {{key}}{{index}}
+    </div>
+  </div>
+  <script src="./public/vue.js"></script>
+  <script>
+    var arr = [1, 2, 3, 4, 5]
+    new Vue({
+      el: '#app',
+      data() {
+        return {
+          msg: 'test',
+          items: {
+            class1 : '一班',
+            class2 : '二班',
+            class3 : '三班',
+            class4 : ['4-1','4-2','4-3'],
+            class5 : {
+              p1: 'xiaoli',
+              p2: 'xiaohong',
+              p3: 'xiaozhang'
+            }
+          }
+        }
+      }    
+    })
+  </script>
+</body>
+
+</html>
