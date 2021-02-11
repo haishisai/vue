@@ -20,10 +20,11 @@
 <body>
 
   <div id="app">
-    {{msg}}
+    普通的循环一个数组
     <ul>
       <li v-for="(item,index) of items" :key="index">{{item}},</li>
     </ul>
+    倒序输出一个数组
     <ul>
       <li v-for="(item,index) of reverseItems" :key="index">{{item}},</li>
     </ul>
@@ -67,8 +68,6 @@
         // 这里的方法等待启动  return不好用  需要赋值
         arrFilter() {
           // this.items2 = this.items.filter(v => v > this.message)
-
-          // 不做dom操作 只是修改 itmes2数据  
           this.items2 = this.items.filter(v => {
             vv = String(v)
             return vv.indexOf(this.inputMessage) >= 0   // includes
