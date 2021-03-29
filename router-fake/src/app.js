@@ -6,8 +6,8 @@ import User from './pages/user.js'
 let template = `
   <div> 
     {{test}}
-    <Home v-if="routerKey==1" ></Home>
-    <List v-if="routerKey==2"></List>
+    <Home v-if="routerKey==1" >vscode git test</Home>
+    <List v-if="routerKey==2">121221</List>
     <User v-if="routerKey==3"></User>
     <Bar @routerChange="routerChange"></Bar>
   </div>
