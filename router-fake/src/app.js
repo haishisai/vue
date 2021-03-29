@@ -19,7 +19,6 @@ export default {
     return{
       test: 'hello pd',
       routerKey: '1'
-      111
     }
   },
   components:{
