@@ -1,5 +1,5 @@
 let template = `
-  <div>list</div>
+  <div>list111111111111111</div>
 `
 
 export default {
