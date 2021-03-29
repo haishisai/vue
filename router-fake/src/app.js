@@ -17,7 +17,7 @@ export default {
   template,
   data(){
     return{
-      test: 'hello pd',
+      test: 'hello pd'
       routerKey: '1'
     }
   },
